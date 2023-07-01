@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_look/login.dart';
+import 'package:weather_look/pages/login.dart';
 import 'package:weather_look/util/auth.dart';
 
 class UserInfoScreen extends StatefulWidget {
@@ -81,8 +81,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                         setState(() {
                           _isSigningOut = false;
                         });
-                        Navigator.of(context)
-                            .pushReplacement(_routeToSignInScreen());
+                        Navigator.pushNamed(context, '/login');
                       },
                       child: const Padding(
                         padding: EdgeInsets.only(top: 8.0, bottom: 8.0),

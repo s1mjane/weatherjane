@@ -65,8 +65,10 @@ class DefaultFirebaseOptions {
     projectId: 'weather-look-dd8f4',
     databaseURL: 'https://weather-look-dd8f4-default-rtdb.firebaseio.com',
     storageBucket: 'weather-look-dd8f4.appspot.com',
-    androidClientId: '414170479907-o2abojesbviqk2gkpg80kkilitaiik87.apps.googleusercontent.com',
-    iosClientId: '414170479907-dgqa6hlbel3mqu04v2hvq77cpajm834e.apps.googleusercontent.com',
+    androidClientId:
+        '414170479907-o2abojesbviqk2gkpg80kkilitaiik87.apps.googleusercontent.com',
+    iosClientId:
+        '414170479907-dgqa6hlbel3mqu04v2hvq77cpajm834e.apps.googleusercontent.com',
     iosBundleId: 'com.example.weatherLook',
   );
 }

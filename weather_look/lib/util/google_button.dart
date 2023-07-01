@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import '../home.dart';
 import 'auth.dart';
 
 class GoogleSignInButton extends StatefulWidget {
@@ -20,17 +18,18 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
       padding: const EdgeInsets.only(bottom: 16.0),
       child: _isSigningIn
           ? const CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Color(0xffff0c4c8a)),
+              valueColor: AlwaysStoppedAnimation<Color>(Color(0xff9E9E9E)),
             )
           : ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFFFFFFF),
+                backgroundColor: Colors.white,
+                shadowColor: Colors.transparent,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(24),
                 ),
                 side: const BorderSide(
                   width: 1,
-                  color: Color(0xff619bd4),
+                  color: Colors.black,
                 ),
               ),
               onPressed: () async {
@@ -40,9 +39,14 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
 
                 User? user =
                     await Authentication.signInWithGoogle(context: context);
+
                 setState(() {
                   _isSigningIn = false;
                 });
+
+                if (user != null) {
+                  Navigator.pushNamed(context, '/home');
+                }
               },
               child: Container(
                 width: 240,
@@ -53,19 +57,16 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        width: 28,
-                        height: 28,
-                        child: Image.asset('asset/image/google_logo.png'),
-                      ),
+                      Image.asset('asset/image/google_logo.png',
+                          width: 28, height: 28),
                       const SizedBox(
-                        width: 13,
+                        width: 28,
                       ),
                       const Text(
                         'Google 로그인',
                         style: TextStyle(
                           fontSize: 16,
-                          color: Color(0xFF0C4C8A),
+                          color: Colors.grey,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
